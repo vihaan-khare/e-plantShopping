@@ -1,55 +1,56 @@
-import "./App.css";
-import AboutUs from "./components/AboutUs";
-import ProductList from "./components/ProductList";
-import CartItem from "./components/CartItem";
 
-function App() {
-    
+function AboutUs() {
   return (
-    <div className="landing-page">
-      <div className="overlay">
-        <nav className="navbar">
-          <div className="logo">🌿 Paradise Nursery</div>
+    <section className="about-us-container" id="about">
+      <div className="about-section">
+        <div className="about-content">
+          <div className="about-text">
+            <p className="section-tag">ABOUT US</p>
 
-          <div className="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#products">Plants</a>
-            <a href="#cart">🛒 Cart</a>
-          </div>
-        </nav>
+            <h2>Welcome to Paradise Nursery</h2>
 
-        <main className="hero-section" id="home">
-          <div className="hero-content">
-            <p className="tagline">BRING NATURE HOME</p>
-
-            <h1>Paradise Nursery</h1>
-
-            <p className="hero-description">
-              Discover beautiful indoor plants and transform your home
-              into a peaceful green paradise.
+            <p>
+              At Paradise Nursery, we believe that plants bring life,
+              beauty, and positive energy into every home.
             </p>
 
-           <button
-  className="get-started-btn"
-  onClick={() =>
-    document
-      .getElementById("products")
-      ?.scrollIntoView({ behavior: "smooth" })
-  }
->
-  Get Started
-</button>
+            <p>
+              We offer a carefully selected collection of indoor plants
+              suitable for beginners and experienced plant lovers alike.
+              Our goal is to make it simple for everyone to create their
+              own little green paradise.
+            </p>
+
+            <p>
+              From beautiful decorative plants to easy-care varieties,
+              Paradise Nursery helps you find the perfect plant for your
+              space.
+            </p>
+
+            <div className="about-features">
+              <div>
+                <span>🌱</span>
+                <h3>Fresh Plants</h3>
+                <p>Healthy plants selected with care.</p>
+              </div>
+
+              <div>
+                <span>🌿</span>
+                <h3>Easy Care</h3>
+                <p>Plants for beginners and experts.</p>
+              </div>
+
+              <div>
+                <span>💚</span>
+                <h3>Happy Homes</h3>
+                <p>Bringing nature closer to you.</p>
+              </div>
+            </div>
           </div>
-        </main>
-        <AboutUs />
-        <ProductList />
-        <section className="cart-section" id="cart">
-  <CartItem />
-</section>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
-export default App;
+export default AboutUs;
