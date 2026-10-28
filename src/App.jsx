@@ -1,56 +1,66 @@
 
-function AboutUs() {
+import React, { useState } from "react";
+import AboutUs from "./components/AboutUs";
+import ProductList from "./components/ProductList";
+import "./App.css";
+
+function App() {
+  const [showProductList, setShowProductList] = useState(false);
+
   return (
-    <section className="about-us-container" id="about">
-      <div className="about-section">
-        <div className="about-content">
-          <div className="about-text">
-            <p className="section-tag">ABOUT US</p>
+    <div className="app-container">
+      {!showProductList ? (
+        <>
+          <div className="background-image">
+            <div className="overlay">
+              <nav className="navbar">
+                <div className="logo">Paradise Nursery</div>
 
-            <h2>Welcome to Paradise Nursery</h2>
+                <div className="nav-links">
+                  <a href="#home">Home</a>
+                  <a href="#about">About Us</a>
+                  <a
+                    href="#plants"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setShowProductList(true);
+                    }}
+                  >
+                    Plants
+                  </a>
+                </div>
+              </nav>
 
-            <p>
-              At Paradise Nursery, we believe that plants bring life,
-              beauty, and positive energy into every home.
-            </p>
+              <section className="hero-section" id="home">
+                <div className="hero-content">
+                  <p className="tagline">BRING NATURE HOME</p>
 
-            <p>
-              We offer a carefully selected collection of indoor plants
-              suitable for beginners and experienced plant lovers alike.
-              Our goal is to make it simple for everyone to create their
-              own little green paradise.
-            </p>
+                  <h1>Welcome to Paradise Nursery</h1>
 
-            <p>
-              From beautiful decorative plants to easy-care varieties,
-              Paradise Nursery helps you find the perfect plant for your
-              space.
-            </p>
+                  <p className="hero-description">
+                    Discover beautiful indoor plants that bring freshness,
+                    beauty, and tranquility to your home. Find the perfect
+                    green companion for every corner of your space.
+                  </p>
 
-            <div className="about-features">
-              <div>
-                <span>🌱</span>
-                <h3>Fresh Plants</h3>
-                <p>Healthy plants selected with care.</p>
-              </div>
-
-              <div>
-                <span>🌿</span>
-                <h3>Easy Care</h3>
-                <p>Plants for beginners and experts.</p>
-              </div>
-
-              <div>
-                <span>💚</span>
-                <h3>Happy Homes</h3>
-                <p>Bringing nature closer to you.</p>
-              </div>
+                  <button
+                    className="get-started-btn"
+                    onClick={() => setShowProductList(true)}
+                  >
+                    Get Started
+                  </button>
+                </div>
+              </section>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+
+          <AboutUs />
+        </>
+      ) : (
+        <ProductList />
+      )}
+    </div>
   );
 }
 
-export default AboutUs;
+export default App;
